@@ -10,26 +10,26 @@ public class slimeboy : MonoBehaviour
     [SerializeField] private ParticleSystem slimeParticles;
     [SerializeField] private ParticleSystem marretaParticles;
 
+    private SlimeSelected slimeSelected;
+
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
+        slimeSelected = GetComponentInChildren<SlimeSelected>();
     }
 
     public void hitHammer()
     {
+        Selected[] selecteds = GetComponentsInChildren<Selected>();
+
+        foreach (Selected s in selecteds)
+        {
+            s.HoverSwitch(false);
+        }
+
         animator.CrossFade("slime_ybot_casting 1", 0.2f);
         StartCoroutine(hammerAndSlimeParticles());
-    }
-
-    public void hoverEnterSlime()
-    {
-
-    }
-
-    public void hoverExitSlime()
-    {
-
     }
 
     IEnumerator hammerAndSlimeParticles()
@@ -40,6 +40,16 @@ public class slimeboy : MonoBehaviour
         yield return new WaitForSeconds(2.11f);
         slimeParticles.Play();
 
+    }
+    
+    public void SlimeHoverEnter()
+    {
+        slimeSelected.HoverSwitch(true);
+    }
+
+    public void SlimeHoverExit()
+    {
+        slimeSelected.HoverSwitch(false);
     }
 
 }

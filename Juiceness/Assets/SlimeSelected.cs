@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEditor.Search;
 using UnityEngine;
 
-public class SlimeSelected : MonoBehaviour
+public class SlimeSelected : Selected
 {
     [SerializeField] private Material light;
     [SerializeField] private Material sel_light;
@@ -45,15 +45,20 @@ public class SlimeSelected : MonoBehaviour
         }
     }
 
-    private void ChangeMateral(MeshRenderer mr, Material mat)
+    protected override void ChangeMateral(Renderer mr, Material mat)
     {
         Material[] mats = mr.materials;
         mats[0] = mat;
         mr.materials = mats;
     }
 
-    public void HoverSwitch()
+    public override void HoverSwitch()
     {
         hover = !hover;
+    }
+    
+    public override void HoverSwitch(bool newValue)
+    {
+        hover = newValue;
     }
 }

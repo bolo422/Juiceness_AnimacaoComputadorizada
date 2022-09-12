@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CubeHover : MonoBehaviour
+public class CubeSelected : Selected
 {
     [SerializeField] private Material mat;
     [SerializeField] private Material sel_mat;
@@ -34,15 +34,20 @@ public class CubeHover : MonoBehaviour
         }
     }
 
-    private void ChangeMateral(SkinnedMeshRenderer mr, Material mat)
+    protected override void ChangeMateral(Renderer mr, Material mat)
     {
         Material[] mats = mr.materials;
         mats[0] = mat;
         mr.materials = mats;
     }
 
-    public void HoverSwitch()
+    public override void HoverSwitch()
     {
         hover = !hover;
+    }
+    
+    public override void HoverSwitch(bool newValue)
+    {
+        hover = newValue;
     }
 }

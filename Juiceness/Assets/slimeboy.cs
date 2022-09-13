@@ -12,6 +12,12 @@ public class slimeboy : MonoBehaviour
 
     private SlimeSelected slimeSelected;
 
+    public AudioSource marretaSlime;
+    public AudioClip marreta;
+    public AudioClip squish;
+    public AudioClip powerUp;
+
+
 
     private void Awake()
     {
@@ -36,8 +42,14 @@ public class slimeboy : MonoBehaviour
     {
         yield return new WaitForSeconds(0.20f);
         marretaParticles.Play();
+        marretaSlime.PlayOneShot(powerUp);
+        marretaSlime.volume = 0.3f;
 
         yield return new WaitForSeconds(2.11f);
+        marretaSlime.PlayOneShot(marreta);
+        marretaSlime.volume = 0.3f;
+        marretaSlime.PlayOneShot(squish);
+        marretaSlime.volume = 1.0f;
         slimeParticles.Play();
 
     }

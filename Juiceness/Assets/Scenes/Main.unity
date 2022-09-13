@@ -3600,6 +3600,11 @@ MonoBehaviour:
   RigidbodyMass: 10
   PrefabLine: {fileID: 1732912670}
   ViewLines: 0
+--- !u!198 &1398782272 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 3132740149339682191, guid: e072cb88eec0c0f4e86dcd9139b457ff, type: 3}
+  m_PrefabInstance: {fileID: 1302733051}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1441695615 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7644615108854257489, guid: 54a60ddb6fd8af9488fbdf5143146370, type: 3}
@@ -4097,6 +4102,7 @@ GameObject:
   - component: {fileID: 2005531642}
   - component: {fileID: 2005531643}
   - component: {fileID: 2005531644}
+  - component: {fileID: 2005531645}
   m_Layer: 0
   m_Name: CubeAndSlimeAnim
   m_TagString: Untagged
@@ -4154,8 +4160,108 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76acf25f64673ec489000400a2d3840b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slimeParticles: {fileID: 0}
+  slimeParticles: {fileID: 1398782272}
   marretaParticles: {fileID: 0}
+  cuboSlime: {fileID: 2005531645}
+  cuboSquish: {fileID: 8300000, guid: ff801b54dc0dbac4a83f4851af5c4d54, type: 3}
+  cuboReverseSquish: {fileID: 8300000, guid: 3e6b00993201da04abb3d2192f6c1a5d, type: 3}
+  cubo: {fileID: 8300000, guid: 13118e314ea527c42b2d6bca48b6248f, type: 3}
+--- !u!82 &2005531645
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2005531641}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &2044018303
 GameObject:
   m_ObjectHideFlags: 0
@@ -4208,6 +4314,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slimeParticles: {fileID: 905395564}
   marretaParticles: {fileID: 1595702239}
+  marretaSlime: {fileID: 7643693650082233654}
+  marreta: {fileID: 8300000, guid: 134f51db110a6894d870b4f5122d8b5c, type: 3}
+  squish: {fileID: 8300000, guid: ccd910b3a4b6ed04583b7053d82c20a5, type: 3}
+  powerUp: {fileID: 8300000, guid: bbcf67044fc8e5e4a9d81853e55a8dea, type: 3}
 --- !u!1 &28775216255569495
 GameObject:
   m_ObjectHideFlags: 0
@@ -8949,6 +9059,7 @@ GameObject:
   - component: {fileID: 7014367745118513074}
   - component: {fileID: 7014367745118513073}
   - component: {fileID: 2122470373}
+  - component: {fileID: 7643693650082233654}
   m_Layer: 0
   m_Name: slimeboy
   m_TagString: Untagged
@@ -9502,6 +9613,102 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &7643693650082233654
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7014367745118513039}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &7668600173973437543
 GameObject:
   m_ObjectHideFlags: 0

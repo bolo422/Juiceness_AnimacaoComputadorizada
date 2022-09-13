@@ -11,6 +11,10 @@ public class CubeAndSlime : MonoBehaviour
 
     private SlimeSelected slimeSelected;
     private CubeSelected cubeSelected;
+    public AudioSource cuboSlime;
+    public AudioClip cuboSquish;
+    public AudioClip cuboReverseSquish;
+    public AudioClip cubo;
 
     private void Awake()
     {
@@ -30,7 +34,7 @@ public class CubeAndSlime : MonoBehaviour
         }
         
         animator.CrossFade("smashSlime", 0.2f);
-        //StartCoroutine(cubeAndSlimeParticles());
+        StartCoroutine(cubeAndSlimeParticles());
     }
 
     public void recover()
@@ -43,15 +47,20 @@ public class CubeAndSlime : MonoBehaviour
         }
         
         animator.CrossFade("recover", 0.2f);
+        cuboSlime.PlayOneShot(cuboReverseSquish);
+        cuboSlime.volume = 1.0f;
     }
     
 
     IEnumerator cubeAndSlimeParticles()
     {
-        yield return new WaitForSeconds(0.20f);
-        marretaParticles.Play();
-
-        yield return new WaitForSeconds(2.11f);
+        //yield return new WaitForSeconds(0.20f);
+        // marretaParticles.Play();
+        cuboSlime.PlayOneShot(cubo);
+        cuboSlime.volume = 1.0f;
+        yield return new WaitForSeconds(1.10f);
+        cuboSlime.PlayOneShot(cuboSquish);
+        cuboSlime.volume = 1.0f;
         slimeParticles.Play();
 
     }

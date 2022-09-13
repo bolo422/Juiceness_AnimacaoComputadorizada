@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CubeAndSlime : MonoBehaviour
@@ -34,6 +33,7 @@ public class CubeAndSlime : MonoBehaviour
         }
         
         animator.CrossFade("smashSlime", 0.2f);
+        AnimationWatcher.Instance.DisableHover(1.217f);
         StartCoroutine(cubeAndSlimeParticles());
     }
 
@@ -47,6 +47,7 @@ public class CubeAndSlime : MonoBehaviour
         }
         
         animator.CrossFade("recover", 0.2f);
+        AnimationWatcher.Instance.DisableHover(1.167f);
         cuboSlime.PlayOneShot(cuboReverseSquish);
         cuboSlime.volume = 1.0f;
     }

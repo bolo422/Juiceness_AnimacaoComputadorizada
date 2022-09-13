@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Search;
 using UnityEngine;
 
 public class SlimeSelected : Selected
@@ -17,8 +13,11 @@ public class SlimeSelected : Selected
     [SerializeField] private MeshRenderer lighterMesh;
     [SerializeField] private MeshRenderer outlineMesh;
     
-    [SerializeField] bool hover = false;
     private bool oldHover;
+
+    
+
+
 
     private void Start()
     {
@@ -27,8 +26,11 @@ public class SlimeSelected : Selected
 
     private void Update()
     {
-        if (oldHover == hover) return;
 
+        CheckForRelevantAnimation();
+        
+        if (oldHover == hover) return;
+        
         oldHover = hover;
         
         if (hover)

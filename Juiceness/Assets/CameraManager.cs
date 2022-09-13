@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraManager : MonoBehaviour
@@ -17,7 +14,15 @@ public class CameraManager : MonoBehaviour
     }
     
     void Update()
-    {   
+    {
+
+        /*if (Input.GetKey(KeyCode.Escape))
+        {
+            Debug.LogError("Quitting Aplication");
+            Application.Quit();
+        }*/
+
+
         if (camera.transform.position != cameraPositions[selectedPosition].position
             || camera.transform.rotation != cameraPositions[selectedPosition].rotation)
         {

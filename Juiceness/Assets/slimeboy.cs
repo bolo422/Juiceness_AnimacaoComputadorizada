@@ -1,5 +1,5 @@
+using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class slimeboy : MonoBehaviour
@@ -12,12 +12,9 @@ public class slimeboy : MonoBehaviour
 
     private SlimeSelected slimeSelected;
 
-    public AudioSource marretaSlime;
-    public AudioClip marreta;
-    public AudioClip squish;
-    public AudioClip powerUp;
-
-
+    [SerializeField] private AudioSource marreta_AS;
+    [SerializeField] private AudioSource squish_AS;
+    [SerializeField] private AudioSource powerUp_AS;
 
     private void Awake()
     {
@@ -35,23 +32,20 @@ public class slimeboy : MonoBehaviour
         }
 
         animator.CrossFade("slime_ybot_casting 1", 0.2f);
+        AnimationWatcher.Instance.DisableHover(4.8f);
         StartCoroutine(hammerAndSlimeParticles());
     }
 
     IEnumerator hammerAndSlimeParticles()
     {
-        yield return new WaitForSeconds(0.20f);
+        yield return new WaitForSeconds(0.10f);
         marretaParticles.Play();
-        marretaSlime.PlayOneShot(powerUp);
-        marretaSlime.volume = 0.3f;
+        powerUp_AS.PlayOneShot(powerUp_AS.clip);
 
         yield return new WaitForSeconds(2.11f);
-        marretaSlime.PlayOneShot(marreta);
-        marretaSlime.volume = 0.3f;
-        marretaSlime.PlayOneShot(squish);
-        marretaSlime.volume = 1.0f;
+        marreta_AS.PlayOneShot(marreta_AS.clip);
+        squish_AS.PlayOneShot(squish_AS.clip);
         slimeParticles.Play();
-
     }
     
     public void SlimeHoverEnter()
@@ -63,5 +57,7 @@ public class slimeboy : MonoBehaviour
     {
         slimeSelected.HoverSwitch(false);
     }
+
+    
 
 }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CubeSelected : Selected
@@ -9,8 +7,6 @@ public class CubeSelected : Selected
 
     [SerializeField] private SkinnedMeshRenderer mesh;
 
-    
-    [SerializeField] bool hover = false;
     private bool oldHover;
 
     private void Start()
@@ -20,6 +16,8 @@ public class CubeSelected : Selected
 
     private void Update()
     {
+        CheckForRelevantAnimation();
+        
         if (oldHover == hover) return;
 
         oldHover = hover;

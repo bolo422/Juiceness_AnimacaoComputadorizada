@@ -1,4 +1,5 @@
 # Juiceness_AnimacaoComputadorizada
+ <a href="https://erickhasse.itch.io/juiceness">Itchio page</a><br>
  Projeto Juiceness - Erick e Jonathan
  Unity Version: 2021.3.8f1
 <br>
